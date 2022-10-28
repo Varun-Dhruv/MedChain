@@ -1,6 +1,5 @@
 node_modules
 .env
-.env-cmdrc.json
 coverage
 coverage.json
 typechain
