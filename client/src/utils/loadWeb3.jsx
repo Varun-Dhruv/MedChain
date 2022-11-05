@@ -1,3 +1,4 @@
+import Web3 from 'web3';
 const loadWeb3 = async () => {  //Setting up Web3
 
   if (window.ethereum) {
@@ -12,3 +13,4 @@ const loadWeb3 = async () => {  //Setting up Web3
     window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
   }
 }
+export default loadWeb3;

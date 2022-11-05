@@ -1,8 +1,15 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "migrate prod": "npm compile && npm migrate",
+    "migrate": "npx hardhat run --network localhost scripts/deploy.ts",
+    "test": "npx hardhat test"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "hardhat": "^2.12.1"
+    "hardhat": "^2.12.1",
+    "prettier": "^2.7.1"
   },
   "dependencies": {
     "@ethersproject/abi": "^5.4.7",
