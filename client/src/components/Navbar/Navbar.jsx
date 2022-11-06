@@ -4,7 +4,7 @@ import './Navbar.scss'
 
 const Navbar = () => {
     const location = useLocation();
-    console.log(location.pathname)
+
     return (
         <div className='Navbar container'>
             <Link to='/' >
@@ -29,6 +29,11 @@ const Navbar = () => {
                 <Link to='/view'>
                     <div className={"link" + ` ${location.pathname === '/view' ? "active" : ""}`}>
                         View
+                    </div>
+                </Link>
+                <Link to='/UserReg'>
+                    <div className={"link" + ` ${location.pathname === '/UserReg' ? "active" : ""}`}>
+                        Register
                     </div>
                 </Link>
             </div>

@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { uploadFile } from '../../utils/uploadFile'
 import { useSelector } from 'react-redux';
 import { FileDrop } from "react-file-drop";
 import { uploadFile } from '../../utils/uploadFile';
