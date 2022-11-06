@@ -13,16 +13,11 @@ contract Doctor is User {
 
     constructor() {}
 
-    event DocRegistered(
-        uint256 _docid,
-        string _firstName,
-        string _lastName
-    );
+    event DocRegistered(uint256 _docid, string _firstName, string _lastName);
 
-    function registerDoc(
-        string memory _firstName,
-        string memory _lastName
-    ) public {
+    function registerDoc(string memory _firstName, string memory _lastName)
+        public
+    {
         require((docCount >= 0)); // Make sure the file hash exists
 
         require((bytes(_firstName).length > 0)); // Make sure file type exists
@@ -33,7 +28,7 @@ contract Doctor is User {
 
         docList[msg.sender] = doc(docCount, _firstName, _lastName);
 
-        emit DocRegistered(docCount, _dob, _firstName, _lastName);
+        emit DocRegistered(docCount, _firstName, _lastName);
     }
 
     function getDoc() public view returns (doc memory) {

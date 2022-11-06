@@ -14,12 +14,13 @@ const View = () => {
     const patient = useSelector(state => state.blockchain.patient);
     const account = useSelector(state => state.blockchain.account);
     const handleClick = async () => {
+        //console.log("hello")
         const userType = await user.getUserType().call();
         if (userType === "Patient") {
             getFiles(patient, account)
         }
         else if (userType === "Doctor") {
-            getFiles(doctor, account)
+            getFiles(user, account)
         }
     }
 

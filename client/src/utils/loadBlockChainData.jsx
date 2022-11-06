@@ -15,7 +15,7 @@ const loadBlockChainData = async () => {
     if (networkId) {
         console.log("Network Id", networkId)
         const doctor = new web3.eth.Contract(doctorABI, "0xb202bfe21c74CFCfDe26d55568A2815B390d53a0")
-        const patient = new web3.eth.Contract(patientABI, "0xb202bfe21c74CFCfDe26d55568A2815B390d53a0")
+        const patient = new web3.eth.Contract(patientABI, "0x11bcA9B6E7E247b27A825eBEcaaD3C3c24cdd907")
         const user = new web3.eth.Contract(userABI, "0xC65F34021Bce8853f2606D6FABCA9Fc44f3FD8c4")
 
         return { doctor, patient, user, account };
