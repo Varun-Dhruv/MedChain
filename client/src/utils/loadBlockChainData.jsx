@@ -16,9 +16,9 @@ const loadBlockChainData = async () => {
         console.log("Network Id", networkId)
         const doctor = new web3.eth.Contract(doctorABI, "0x5fbdb2315678afecb367f032d93f642f64180aa3")
         const patient = new web3.eth.Contract(patientABI, "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512")
-        const user = new web3.eth.Contract(patientABI, "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0")
+        const user = new web3.eth.Contract(userABI, "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0")
 
-        return { doctor, patient, user };
+        return { doctor, patient, user ,account };
     }
     else { //Else
         window.alert('DStorage contract not deployed to detected network')//alert Error

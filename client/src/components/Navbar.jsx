@@ -7,6 +7,7 @@ const Navbar = () => {
             <Link className='link' to='/upload'>Upload</Link>
             <Link className='link' to='/share'>Share</Link>
             <Link className='link' to='/view'>view</Link>
+            <Link className='link' to='/UserReg'>UserReg</Link>
         </div>
     )
 }
