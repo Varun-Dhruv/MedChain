@@ -1,0 +1,1 @@
+export { setPatient, setDoctor, setUser } from './blockchain';

@@ -5,8 +5,14 @@ import Home from './pages/Home';
 import Share from './pages/Share';
 import Upload from './pages/Upload';
 import View from './pages/View';
+import { useSelector } from "react-redux"
+import { useEffect } from 'react';
+
 function App() {
   const [count, setCount] = useState(0)
+  const doctor = useSelector(state => state.blockchain.doctor);
+  const patient = useSelector(state => state.blockchain.patient);
+  const user = useSelector(state => state.blockchain.user);
 
   return (
     <div className="App">

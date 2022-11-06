@@ -5,10 +5,8 @@
     "migrate prod": "npm run compile && npm run migrate",
     "migrate": "npx hardhat run --network localhost scripts/deploy.ts",
     "test": "npx hardhat test",
-    "start:ipfs":"ipfs daemon",
+    "start:ipfs": "ipfs daemon",
     "node": "npx hardhat node"
-
-
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
@@ -29,6 +27,7 @@
     "@types/mocha": "^9.1.0",
     "@types/node": ">=12.0.0",
     "chai": "^4.2.0",
+    "chalk": "^5.1.2",
     "ethers": "^5.4.7",
     "hardhat-gas-reporter": "^1.0.8",
     "solidity-coverage": "^0.8.1",
