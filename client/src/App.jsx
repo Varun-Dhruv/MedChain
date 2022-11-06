@@ -5,7 +5,7 @@ import Home from './pages/Home/Home';
 import Share from './pages/Share/Share';
 import Upload from './pages/Upload/Upload';
 import View from './pages/View/View';
-import UserRegistration from './pages/userRegistration';
+import UserRegistration from './pages/UserRegisteration/UserRegistration';
 import { useSelector, useDispatch } from "react-redux"
 import * as actions from "./store/actions/index"
 import { useEffect } from 'react';
