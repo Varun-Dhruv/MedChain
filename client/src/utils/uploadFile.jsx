@@ -1,6 +1,5 @@
 import { create } from 'ipfs-http-client'
 import { Buffer } from 'buffer';
-import { useSelector } from "react-redux"
 export const uploadFile = (file, user, account) => {
 
     // const doctor = useSelector(state => state.blockchain.doctor);

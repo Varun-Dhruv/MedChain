@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { uploadFile } from '../../utils/uploadFile'
 import { useSelector } from 'react-redux';
 import { FileDrop } from "react-file-drop";
 import { uploadFile } from '../../utils/uploadFile';
@@ -34,7 +33,7 @@ const Upload = () => {
     };
 
     const handleSubmit = async () => {
-        for (let i = 0; k < files.length; k++) {
+        for (let i = 0; i < files.length; i++) {
             const userType = await user.getUserType().call();
             if (userType === "Patient") {
                 uploadFile(files[i], patient, account)

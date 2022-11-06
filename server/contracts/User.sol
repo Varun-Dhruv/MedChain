@@ -70,8 +70,12 @@ contract User {
         ); // Trigger an event
     }
 
-    function getFiles() public view returns (File memory) {
-        return files[msg.sender][0];
+    function getFilesCount() public view returns (uint) {
+        return files[msg.sender].length;
+    }
+
+    function getFiles(uint _fileId) public view returns (File memory) {
+        return files[msg.sender][_fileId];
     }
 
     function setUserType(string memory _userType) public {

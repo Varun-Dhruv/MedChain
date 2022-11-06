@@ -1,9 +1,15 @@
 
 export const getFiles = async (user, account) => {
     try {
+        const filesCount = await user.getFilesCount().call({ from: account });
+         console.log(filesCount);
+        //(let i=0;i<filesCount;i++)
+        //{
+       // const file = await user.getFiles(0).call({ from: account });
+       // console.log(file)
+        //}
+        return filesCount;
 
-        const file = await user.getFiles().call({ from: account })
-        return file;
 
     } catch (error) {
         console.error(error);

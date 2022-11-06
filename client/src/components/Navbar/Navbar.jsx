@@ -4,7 +4,6 @@ import './Navbar.scss'
 
 const Navbar = () => {
     const location = useLocation();
-    console.log(location.pathname)
     return (
         <div className='Navbar container'>
             <Link to='/' >
