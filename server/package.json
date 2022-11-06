@@ -2,9 +2,13 @@
   "name": "hardhat-project",
   "scripts": {
     "compile": "npx hardhat compile",
-    "migrate prod": "npm compile && npm migrate",
+    "migrate prod": "npm run compile && npm run migrate",
     "migrate": "npx hardhat run --network localhost scripts/deploy.ts",
-    "test": "npx hardhat test"
+    "test": "npx hardhat test",
+    "start:ipfs":"ipfs daemon",
+    "node": "npx hardhat node"
+
+
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",

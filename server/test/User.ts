@@ -22,17 +22,23 @@ describe("User", () => {
             //console.log(await contract.signer.getAddress())
             //_fileHash, uint _fileSize, string memory _fileType, string memory _fileName
             await contract.uploadFile("nownvpinb", 12345, "application/pdf", "report");
-            //const [owner] = await ethers.getSigners();
-            //console.log(owner);
-            const file = await contract.getFiles();
-            console.log(file)
-            //console.log(contract.files)
-            const files: string = "1"
-            expect(files).to.be.not.undefined;
-            expect(files).to.be.not.null;
-            expect(files).to.be.not.NaN;
-            expect(files).to.equal("1");
-            // const doc: Doc= await contract.docList[]
+
+            const finalFileCount: BigNumber = await contract.fileCount();
+
+            expect(finalFileCount).to.be.not.undefined;
+            expect(finalFileCount).to.be.not.null;
+            expect(finalFileCount).to.be.not.NaN;
+            expect(finalFileCount).to.greaterThan(initialFileCount);
+        })
+    })
+    describe('setUserType', async () => {
+        it("return userType ", async () => {
+            await contract.setUserType("Doctor");
+            const userTypeDoc: string = await contract.getUserType();
+            expect(userTypeDoc).to.be.not.undefined;
+            expect(userTypeDoc).to.be.not.null;
+            expect(userTypeDoc).to.be.not.NaN;
+            expect(userTypeDoc).to.equal("Doctor");
         })
     })
 })

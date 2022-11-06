@@ -11,7 +11,7 @@ describe("Doctor", () => {
         const Doctor = await ethers.getContractFactory("Doctor");
         contract = await Doctor.deploy();
     });
-    
+
     describe("docId", async () => {
         it("should return 0", async () => {
             //await contract.deployed();
@@ -30,7 +30,7 @@ describe("Doctor", () => {
             expect(initialDocCount).to.be.not.null;
             expect(initialDocCount).to.be.not.NaN;
             await contract.registerDoc(111111111, "Varun", "Koranne");
-
+            
             const docCount = await contract.docCount();
             expect(docCount).to.be.not.undefined;
             expect(docCount).to.be.not.null;
