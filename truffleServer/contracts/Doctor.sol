@@ -6,7 +6,6 @@ contract Doctor is User {
     uint public docCount = 0;
     struct doc {
         uint256 id;
-        uint256 dob;
         string firstName;
         string lastName;
     }
@@ -16,13 +15,11 @@ contract Doctor is User {
 
     event DocRegistered(
         uint256 _docid,
-        uint256 _dob,
         string _firstName,
         string _lastName
     );
 
     function registerDoc(
-        uint _dob,
         string memory _firstName,
         string memory _lastName
     ) public {
@@ -34,7 +31,7 @@ contract Doctor is User {
 
         docCount++;
 
-        docList[msg.sender] = doc(docCount, _dob, _firstName, _lastName);
+        docList[msg.sender] = doc(docCount, _firstName, _lastName);
 
         emit DocRegistered(docCount, _dob, _firstName, _lastName);
     }

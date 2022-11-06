@@ -5,3 +5,4 @@ export const AUTH_LOGOUT = "AUTH_LOGOUT";
 export const UPDATE_PATIENT = "UPDATE_PATIENT";
 export const UPDATE_DOCTOR = "UPDATE_DOCTOR";
 export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_ACCOUNT = "UPDATE_ACCOUNT";

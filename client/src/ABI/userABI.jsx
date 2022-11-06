@@ -1,2 +1,2 @@
-import abi from "../abis/User.sol/User.json";
+import abi from "../abis/User.json";
 export const userABI = abi.abi; 

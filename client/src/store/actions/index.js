@@ -1,1 +1,1 @@
-export { setPatient, setDoctor, setUser } from './blockchain';
+export { setPatient, setDoctor, setUser,setAccount } from './blockchain';

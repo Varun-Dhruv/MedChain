@@ -5,6 +5,7 @@ const initialState = {
 	patient: null,
 	doctor: null,
 	user: null,
+	account:null,
 }
 
 const patientValue = (state, action) => {
@@ -18,6 +19,9 @@ const doctorValue = (state, action) => {
 const userValue = (state, action) => {
 	return updateObject(state, { user: action.data })
 }
+const accountValue = (state, action) => {
+	return updateObject(state, { account: action.data })
+}
 
 const blockchainReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -27,6 +31,8 @@ const blockchainReducer = (state = initialState, action) => {
 			return doctorValue(state, action)
 		case actionTypes.UPDATE_USER:
 			return userValue(state, action)
+		case actionTypes.UPDATE_ACCOUNT:
+			return accountValue(state, action)
 		default:
 			return state
 	}
