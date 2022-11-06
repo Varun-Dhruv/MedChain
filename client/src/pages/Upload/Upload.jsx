@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { uploadFile } from '../../utils/uploadFile'
+import { useSelector } from 'react-redux';
 import { FileDrop } from "react-file-drop";
+import { uploadFile } from '../../utils/uploadFile';
 import FolderImg from "/public/assets/images/folderImg.png";
 import { AiOutlineFile } from "react-icons/ai";
 import './Upload.scss';
@@ -8,6 +10,11 @@ import './Upload.scss';
 const Upload = () => {
     const [files, setFiles] = useState([]);
     const uploadRef = useRef(null);
+
+    const doctor = useSelector(state => state.blockchain.doctor);
+    const user = useSelector(state => state.blockchain.user);
+    const patient = useSelector(state => state.blockchain.patient);
+    const account = useSelector(state => state.blockchain.account);
 
     const handleBrowseClick = () => {
         uploadRef.current.click();
@@ -26,9 +33,15 @@ const Upload = () => {
         handleFiles(e, e.target.files);
     };
 
-    const handleSubmit = () => {
-        for (let k = 0; k < files.length; k++) {
-            props.upload(files[k]);
+    const handleSubmit = async () => {
+        for (let i = 0; k < files.length; k++) {
+            const userType = await user.getUserType().call();
+            if (userType === "Patient") {
+                uploadFile(files[i], patient, account)
+            }
+            else if (userType === "Doctor") {
+                uploadFile(files[i], doctor, account)
+            }
         }
     };
 

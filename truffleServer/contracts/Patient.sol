@@ -5,20 +5,24 @@ contract Patient {
     uint public patientCount = 0;
     struct patient {
         uint256 id;
+        uint256 dob;
         string firstName;
         string lastName;
     }
     mapping(address => patient) public patientList;
 
     event PatientRegistered(
-        uint256 _patientid,
+        uint256 _docid,
+        uint256 _dob,
         string _firstName,
         string _lastName
     );
 
-    function registerPatient(string memory _firstName, string memory _lastName)
-        public
-    {
+    function registerPatient(
+        uint _dob,
+        string memory _firstName,
+        string memory _lastName
+    ) public {
         require((patientCount >= 0)); // Make sure the file hash exists
 
         require((bytes(_firstName).length > 0)); // Make sure file type exists
@@ -27,9 +31,14 @@ contract Patient {
 
         patientCount++;
 
-        patientList[msg.sender] = patient(patientCount, _firstName, _lastName);
+        patientList[msg.sender] = patient(
+            patientCount,
+            _dob,
+            _firstName,
+            _lastName
+        );
 
-        emit PatientRegistered(patientCount, _firstName, _lastName);
+        emit PatientRegistered(patientCount, _dob, _firstName, _lastName);
     }
 
     function getPatient() public view returns (patient memory) {

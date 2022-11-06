@@ -1,6 +1,14 @@
 import { create } from 'ipfs-http-client'
 import { Buffer } from 'buffer';
-export const uploadFile = (file, user) => {
+import { useSelector } from "react-redux"
+export const uploadFile = (file, user, account) => {
+
+    // const doctor = useSelector(state => state.blockchain.doctor);
+    // const user = useSelector(state => state.blockchain.user);
+    // const patient = useSelector(state => state.blockchain.patient);
+    console.log(file);
+    const fileName = file.name;
+    const fileType = file.type;
     window.Buffer = Buffer;
 
     const IPFS = create("/ip4/127.0.0.1/tcp/5001")
@@ -12,28 +20,22 @@ export const uploadFile = (file, user) => {
         const buff = window.Buffer(reader.result)
         const result = await IPFS.add(buff)
         //console.log(result)
-
         // setLoading(true)  //Set state to loading
-
         if (file.type === '') {  //Assign value for the file without extension
             file.type = 'none'
         }
-        console.log(result)
-        if (user === "Patient") {
-        }
-        else if (user === "Doctor") {
-
-        }
-        //Call smart contract uploadFile function 
-        // Doctor.methods.uploadFile(result.path, result.size, file.type, file.name).send({ from: Account }).on('transactionHash', (hash) => {
-        //     setLoading(false)
-        //     window.location.reload()
-        // }).on('error', (e) => {
-        //     window.alert('Error')
-        //     setLoading(false)
-        // })
+        user.uploadFile(result.path, result.size, fileType, fileName).send({ from: account }).on('transactionHash', (hash) => {
+            //setLoading(false)
+            //window.location.reload()
+            console.log("File Uploaded", hash)
+        }).on('error', (e) => {
+            window.alert('Error')
+            // setLoading(false)
+        })
     }
+
 }
+
 
 const captureFile = (File) => {
 

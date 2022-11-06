@@ -20,5 +20,11 @@ export const setUser = (data) => {
 		data,
 	};
 }
+export const setAccount = (data) => {
+	return {
+		type: actionTypes.UPDATE_ACCOUNT,
+		data,
+	};
+}
 
 
