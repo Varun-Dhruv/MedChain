@@ -1,20 +1,20 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { it } from "mocha";
 import { BigNumber } from "ethers";
 import { User } from "../typechain-types/User"
-import { Contract } from "ethers";
-let contract: User
-
-describe("User", () => {
-    let contract: User
+describe("User", async () => {
+    //console.log("hel")
+    let contract: User;
     beforeEach(async () => {
+       // console.log("Hello")
         const User = await ethers.getContractFactory("User");
         contract = await User.deploy();
+        await contract.deployed();
+
     });
-    describe('uploadFile', async () => {
+    describe('uploadFile', () => {
         it("return incremented count", async () => {
-            //await contract.deployed();
+
             const initialFileCount: BigNumber = await contract.fileCount();
             expect(initialFileCount).to.be.not.undefined;
             expect(initialFileCount).to.be.not.null;
@@ -31,7 +31,7 @@ describe("User", () => {
             expect(finalFileCount).to.greaterThan(initialFileCount);
         })
     })
-    describe('setUserType', async () => {
+    describe('setUserType', () => {
         it("return userType ", async () => {
             await contract.setUserType("Doctor");
             const userTypeDoc: string = await contract.getUserType();
